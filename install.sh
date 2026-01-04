@@ -25,10 +25,10 @@ detect_platform() {
 
     case "$os" in
         linux*)
-            OS="unknown-linux-gnu"
+            OS="linux"
             ;;
         darwin*)
-            OS="apple-darwin"
+            OS="darwin"
             ;;
         *)
             echo -e "${RED}error: unsupported operating system: $os${NC}"
@@ -38,10 +38,10 @@ detect_platform() {
 
     case "$arch" in
         x86_64|amd64)
-            ARCH="x86_64"
+            ARCH="amd64"
             ;;
         aarch64|arm64)
-            ARCH="aarch64"
+            ARCH="arm64"
             ;;
         *)
             echo -e "${RED}error: unsupported architecture: $arch${NC}"
@@ -49,7 +49,7 @@ detect_platform() {
             ;;
     esac
 
-    PLATFORM="${ARCH}-${OS}"
+    PLATFORM="${OS}-${ARCH}"
 }
 
 # Get latest release version
